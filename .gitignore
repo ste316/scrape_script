@@ -1,0 +1,4 @@
+*.json
+*.html
+proxy.txt
+*/__pycache__
