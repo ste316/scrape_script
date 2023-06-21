@@ -61,6 +61,7 @@ class WSLscraper():
             while True:
                 newLink = set()
                 newLinkInfo = dict()
+                print(f"[{datetime.now().strftime('%H:%M:%S')}] Getting main page...")
                 res = self.sess.get(self.url_sitemap, params=random.choice(self.param))
                 
                 if res.status_code != 200:
@@ -93,7 +94,7 @@ if __name__ == '__main__':
     '''
         TODO rewrite this module in Rust
     '''
-    main = WSLscraper(3, True)
+    main = WSLscraper(3, False)
     main.run(True)
 
 '''
