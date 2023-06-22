@@ -1,7 +1,4 @@
 '''
-    TODO
-
-TODO add timestamp to webhook
 TODO add multi thread support
 TODO scrape https://www.withoutstupidlabel.it/
         if <a> data-testid="linkElement" 
@@ -14,5 +11,7 @@ TODO scrape https://www.withoutstupidlabel.it/
             
             checkIfCartable()
 TODO add main.py to .gitignore and remove if __name__ from scraper.py
-TODO modify discord webhook, add product name
+TODO rewrite this module in Rust
+
+DONE modify discord webhook, add product name, add timestamp
 '''

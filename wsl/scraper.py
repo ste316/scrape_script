@@ -1,4 +1,4 @@
-from requests import Session
+from requests import Session, Response
 from datetime import datetime
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
 from discord_webhook import DiscordEmbed
@@ -9,6 +9,7 @@ from lib1 import util
 from warnings import filterwarnings
 
 filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
+
 class WSLscraper():
     def __init__(self, timeout, loadCachedLink: bool) -> None:
         self.settings = util.loadSettings()
@@ -23,14 +24,27 @@ class WSLscraper():
         self.timeout = timeout
         if loadCachedLink: self.urls.update(util.loadCachedLink())
 
-    def checkIfCartable(self, link: str):
+    def getproductInfo(self, link: str):
         res = self.sess.get(link)
+        if res.status_code == 200:
+            soup = BeautifulSoup(res.content, features='html.parser')
+
+            #<span data-hook="formatted-primary-price">€ 79,00</span>
+            price = soup.find('span', {"data-hook": "formatted-primary-price"}).text
+            # <h1 data-hook="product-title" class="_2qrJF igTU-">Basic Tee pack (2pz)</h1>
+            title = soup.find('h1', {'data-hook': 'product-title'}).text
+            isCartable = self.checkIfCartable(res)
+            return title, price, isCartable
+
+        else: return False, False, False
+
+    def checkIfCartable(self, res: Response):
         atc = re.compile("Aggiungi al carrello")
         buy = re.compile("Acquista ora")
         if (type(re.search(atc, str(res.content))) or type(re.search(buy, str(res.content))))  == re.Match:
             soup = BeautifulSoup(res.content, features='lxml')
             result = soup.find_all("div", {"id": "dropdown-options-container_-1"})
-            #print(result)
+            print(f'Func checkIfCartable {result=}')
             return True
         return False
 
@@ -43,73 +57,81 @@ class WSLscraper():
             })
         return param
 
-    def printWebhook(self, links:list, linksInfo: dict, reqError: bool): # https://discordpy.readthedocs.io/en/latest/api.html
-        if len(links) == 0 and reqError:
+    def printWebhook(self, linksInfo: list, reqError: bool): # https://discordpy.readthedocs.io/en/latest/api.html
+        if len(linksInfo) == 0 and reqError:
             embed = DiscordEmbed(title='Unable to scrape, check console', color = 0XFF0000)
         else:
             embed = DiscordEmbed(title='New Product(s) Found', color = 4437377)
-            for i in range(len(links)):
-                embed.add_embed_field(name=f'', value = f'[**Product {i+1} {"CARTABLE" if linksInfo[links[i]] else "LOADED"}**]({links[i]})', inline = False) # [{links[i]}]
+            for i in range(len(linksInfo)):
+                embed.add_embed_field(
+                    name=f'', 
+                    value = f'[**{linksInfo[i]["title"]}**]({linksInfo[i]["link"]}) {"CARTABLE" if linksInfo[i]["isCartable"] else "LOADED"} {linksInfo[i]["price"]}', 
+                    inline = False
+                )
 
             embed.set_footer(text = f"Monitor by ste#7981", icon_url = self.settings['discord_iconurl'])
-            
+            embed.timestamp = f'{datetime.utcnow()}' # .strftime("%H:%M:%S")
+
         self.webhook.add_embed(embed)
         self.webhook.execute()
+
+    def getSitemap(self) -> Response:
+        return self.sess.get(self.url_sitemap, params=random.choice(self.param))
+
+    def getLinkFromXml(self, res: Response):
+        soup = BeautifulSoup(res.text, features='lxml')
+        return soup.findAll('loc')
 
     def run(self, dumpNewLink: bool):
         try:
             while True:
-                newLink = set()
-                newLinkInfo = dict()
+                newLink = []
                 print(f"[{datetime.now().strftime('%H:%M:%S')}] Getting main page...")
-                res = self.sess.get(self.url_sitemap, params=random.choice(self.param))
-                
+                res = self.getSitemap()
+
                 if res.status_code != 200:
                     print(f"[{datetime.now().strftime('%H:%M:%S')}] Error {res.status_code}: page not reached, retriyng...")
                     self.errCount +=1
                     if self.errCount >= 3:
                         self.printWebhook([],[], True)
                     continue
-                soup = BeautifulSoup(res.text, features='lxml')
-                result = soup.findAll('loc')
+                
+                print(f"[{datetime.now().strftime('%H:%M:%S')}] Successfully got main page...")
+                result = self.getLinkFromXml(res)
 
+                print(f"[{datetime.now().strftime('%H:%M:%S')}] Scraping product pages found...")
                 for i in range(len(result)):
                     if result[i].text not in self.urls:
+                        for j in range(3): # try maximum 3 times
+                            info = self.getproductInfo(result[i].text)
+                            if not info[0] and not info[1] and not info[2]:
+                                continue
+                            break
+                        title, price, isCartable = info
+
                         self.urls.add(result[i].text)
-                        newLink.add(result[i].text)
-                        isCartable = self.checkIfCartable(result[i].text)
-                        newLinkInfo[str(result[i].text)] = isCartable
-                        print(f'[{datetime.now().strftime("%H:%M:%S:%f")}] {result[i].text} {"CARTABLE" if isCartable else ""}')
-                        
+                        newLink.append({
+                            'link': result[i].text,
+                            'title': title,
+                            'price': price,
+                            'isCartable': isCartable
+                        })
+
+                        # if verbose: print(f'[{datetime.now().strftime("%H:%M:%S:%f")}] New Product Found! {result[i].text}, IsCartable: {isCartable}, title: {title}, price: {price}')
+                print(f"[{datetime.now().strftime('%H:%M:%S')}] New product found: {len(newLink)}")
                 if len(newLink) > 0:
-                    self.printWebhook(list(newLink), newLinkInfo, False)
+                    self.printWebhook(newLink, False)
                     if dumpNewLink:
                         util.dumpCachedLink(self.urls)
                 time.sleep(self.timeout)
         except KeyboardInterrupt:
             print('^C detected, exiting')
 
-
 if __name__ == '__main__':
-    '''
-        TODO rewrite this module in Rust
-    '''
     main = WSLscraper(3, False)
     main.run(True)
 
 '''
-1:
-    scrape https://www.withoutstupidlabel.it/
-    if <a> data-testid="linkElement" 
-        while True:
-            bypass queue/question 
-                if <a> data-testid="linkElement" href != "https://www.withoutstupidlabel.it"
-                    get the link
-                    open it and check if it's a product page
-                    otherwise continue
-        
-        checkIfCartable()
-
 '''
 
 
