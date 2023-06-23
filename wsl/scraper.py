@@ -41,10 +41,10 @@ class WSLscraper():
     def checkIfCartable(self, res: Response):
         atc = re.compile("Aggiungi al carrello")
         buy = re.compile("Acquista ora")
-        if (type(re.search(atc, str(res.content))) or type(re.search(buy, str(res.content))))  == re.Match:
-            soup = BeautifulSoup(res.content, features='lxml')
-            result = soup.find_all("div", {"id": "dropdown-options-container_-1"})
-            print(f'Func checkIfCartable {result=}')
+        if (type(re.search(atc, str(res.content))) or type(re.search(buy, str(res.content)))) == re.Match:
+            # soup = BeautifulSoup(res.content, features='lxml')
+            # result = soup.find_all("div", {"id": "dropdown-options-container_-1"})
+            # print(f'Func checkIfCartable {result=}')
             return True
         return False
 
@@ -61,7 +61,7 @@ class WSLscraper():
         if len(linksInfo) == 0 and reqError:
             embed = DiscordEmbed(title='Unable to scrape, check console', color = 0XFF0000)
         else:
-            embed = DiscordEmbed(title='New Product(s) Found', color = 4437377)
+            embed = DiscordEmbed(title='New Product(s) Found!', color = 4437377)
             for i in range(len(linksInfo)):
                 embed.add_embed_field(
                     name=f'', 
@@ -70,7 +70,7 @@ class WSLscraper():
                 )
 
             embed.set_footer(text = f"Monitor by ste#7981", icon_url = self.settings['discord_iconurl'])
-            embed.timestamp = f'{datetime.utcnow()}' # .strftime("%H:%M:%S")
+            embed.timestamp = f'{datetime.utcnow()}'
 
         self.webhook.add_embed(embed)
         self.webhook.execute()
@@ -116,16 +116,16 @@ class WSLscraper():
                             'price': price,
                             'isCartable': isCartable
                         })
-
                         # if verbose: print(f'[{datetime.now().strftime("%H:%M:%S:%f")}] New Product Found! {result[i].text}, IsCartable: {isCartable}, title: {title}, price: {price}')
-                print(f"[{datetime.now().strftime('%H:%M:%S')}] New product found: {len(newLink)}")
+                
                 if len(newLink) > 0:
+                    print(f"[{datetime.now().strftime('%H:%M:%S')}] New product found: {len(newLink)}")
                     self.printWebhook(newLink, False)
                     if dumpNewLink:
                         util.dumpCachedLink(self.urls)
                 time.sleep(self.timeout)
         except KeyboardInterrupt:
-            print('^C detected, exiting')
+            print('CTRL C detected, exiting')
 
 if __name__ == '__main__':
     main = WSLscraper(3, False)

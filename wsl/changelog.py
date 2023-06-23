@@ -11,7 +11,7 @@ TODO scrape https://www.withoutstupidlabel.it/
             
             checkIfCartable()
 TODO add main.py to .gitignore and remove if __name__ from scraper.py
-TODO rewrite this module in Rust
+TODO catch a drop/restock to add size scraping
 
 DONE modify discord webhook, add product name, add timestamp
 '''
