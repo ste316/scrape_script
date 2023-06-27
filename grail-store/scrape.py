@@ -80,8 +80,8 @@ class productScraper():
     
     def printProductInfo(self, print_webhook: bool, load_links: list, atc_links: list, sizes: list, title: str, sku: str, base_link :str):
         if print_webhook: lib.printWebhook(sizes, title, base_link, atc_links, load_links)
-        print(f'Product: {base_link}\n\ttitle: {title}\n\tproduct id: {sku}\n\tsize available: {", ".join(sizes)} \
-          \n\tAdd to Cart: {", ".join(atc_links)}\n\tLoad size link: {", ".join(load_links)}')
+        lib.logConsoleProduct(f'Product: {base_link}\n\ttitle: {title}\n\tproduct id: {sku}\n\tsize available: {", ".join(sizes)} ')
+        #      \ \n\tAdd to Cart: {", ".join(atc_links)}\n\tLoad size link: {", ".join(load_links)}')
 
 class mainPageScraper():
     def __init__(self, link: str, proxies) -> None:
@@ -137,11 +137,6 @@ if __name__ == '__main__':
     s = productScraper({})
     for baseL in all:
         load_links, atc_links, sizes, id, title, sku = s.scrapeProductPage(link=baseL)
-        # s.printProductInfo(False, load_links, atc_links, sizes, title, sku, baseL)
+        s.printProductInfo(True, load_links, atc_links, sizes, title, sku, baseL)
 
-    '''
-    s = productScraper(proxies=lib.load_proxy())
-    a = s.scrapeProductPage('https://www.grail-store.com/en/daily-paper-ralo-shorts.html')
-    print(a)
-    '''
     

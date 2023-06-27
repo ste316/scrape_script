@@ -86,6 +86,10 @@ class lib:
         print(f'{lib.printFormat()} |{lib.OKBLUE} {text} {lib.ENDC}')
 
     @staticmethod
+    def logConsoleProduct(text: str):
+        print(f'{lib.printFormat()} |{lib.WARNING} {text} {lib.ENDC}')
+
+    @staticmethod
     def genCustomHeader(addionalKeyValuePair: dict):
         header = lib.defaultHeader().update(addionalKeyValuePair) # get default header and add additional header
         return header

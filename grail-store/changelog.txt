@@ -1,4 +1,5 @@
-TODO mainLib.printWebhook add load and atc for each size
 TODO add random parameters to make any requests
 TODO add functionalities to dump all data scraped
 TODO productScraper.scrapeProductPage reorganize function to return a dict
+
+DONE mainLib.printWebhook add load and atc for each size
