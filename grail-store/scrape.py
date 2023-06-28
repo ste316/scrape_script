@@ -3,6 +3,7 @@ from mainLib import lib
 from bs4 import BeautifulSoup as bs
 from re import findall
 from math import trunc 
+from json import dumps
 
 class productScraper():
     def __init__(self, proxies: dict) -> None:
@@ -75,13 +76,45 @@ class productScraper():
                 (load_links, atc_links, sizes, id) = self.parseInfo(list)
 
             title = lib.getTitle(soup)
-            return (load_links, atc_links, sizes, id, title, sku)
+            return {
+                'title': title,
+                'sku': sku,
+                'id': id,
+                'sizes': sizes,
+                'load_links': load_links,
+                'atc_links': atc_links
+            }
         else: return (False)
     
     def printProductInfo(self, print_webhook: bool, load_links: list, atc_links: list, sizes: list, title: str, sku: str, base_link :str):
         if print_webhook: lib.printWebhook(sizes, title, base_link, atc_links, load_links)
         lib.logConsoleProduct(f'Product: {base_link}\n\ttitle: {title}\n\tproduct id: {sku}\n\tsize available: {", ".join(sizes)} ')
         #      \ \n\tAdd to Cart: {", ".join(atc_links)}\n\tLoad size link: {", ".join(load_links)}')
+
+    def bulkScraping(self, links: list[str], send_webhook: bool = False, dump_json: bool = False):
+        def dump(obj):
+            lib.writeFile('data.json', dumps(obj, indent=4))
+
+        all_product = list()
+
+        for link in links:
+            all_product.append(self.scrapeProductPage(link))
+        
+        # if send_webhook: call function to send all product to webhook
+        if dump_json: dump(all_product)
+
+        return all_product
+
+    def bulkSendWebhook(self, product: list[dict]):
+        webhook_list = lib.loadJsonFile('settings.json')['discord_webhook_links']
+        prdXwebhook = int(len(product) // len(webhook_list))
+        rest = int(len(product) % len(webhook_list))
+        pass
+        '''
+        create a thread for each webhook, split the product between them
+        read the response body to see if the webhook were sent otherwise
+        sleep the amount of time (is in the respose body)
+        '''
 
 class mainPageScraper():
     def __init__(self, link: str, proxies) -> None:
@@ -135,8 +168,7 @@ if __name__ == '__main__':
     all = m.getAllProductsLinks()
 
     s = productScraper({})
-    for baseL in all:
-        load_links, atc_links, sizes, id, title, sku = s.scrapeProductPage(link=baseL)
-        s.printProductInfo(True, load_links, atc_links, sizes, title, sku, baseL)
+    s.bulkScraping(all)
+
 
     

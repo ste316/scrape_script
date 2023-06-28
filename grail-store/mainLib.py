@@ -1,11 +1,12 @@
 from re import compile, search, Match
-from random import choice
+from random import choice, randint
 from requests import Response, get
 from bs4 import BeautifulSoup as bs
 from discord_webhook import DiscordEmbed, DiscordWebhook
 from datetime import datetime
 from requests_html import HTMLSession
 from json import load
+from string import ascii_lowercase
 
 class lib:
     HEADER = '\033[95m'
@@ -96,10 +97,21 @@ class lib:
 
     @staticmethod
     def retrivePage(link: str, proxies: list):
+        def get_random_string():
+            letters = ascii_lowercase
+            length = choice(range(1,4))
+            return ''.join(choice(letters) for i in range(length))
+
+        def genParams():
+            return {
+                    get_random_string(): randint(0,10000000),
+                    get_random_string(): choice(['true', 'false']),
+                }
+
         if len(proxies) > 0:
-            res = get(link, headers=lib.defaultHeader(), proxies=choice(proxies))
+            res = get(link, headers=lib.defaultHeader(), proxies=choice(proxies), params=genParams())
         else:
-            res = get(link, headers=lib.defaultHeader())
+            res = get(link, headers=lib.defaultHeader(), params=genParams())
         return res
 
     @staticmethod
@@ -110,20 +122,19 @@ class lib:
         return soup.find('title').text
 
     @staticmethod
-    def printWebhook(size: list, title: str, baseL:str, atc: list, load: list): # https://discordpy.readthedocs.io/en/latest/api.html
+    def printWebhook(size: list, title: str, baseL:str, atc: list, load: list, discord_url: str = ''): # https://discordpy.readthedocs.io/en/latest/api.html
         settings = lib.loadJsonFile('settings.json')
-        webhook = DiscordWebhook(url=settings['discord_webhook'], content = "")
+        if discord_url.replace(' ', '') == '': discord_url = settings['discord_webhook_links'][0]
+        webhook = DiscordWebhook(url=discord_url, username='Grail Store Scraper')
         embed = DiscordEmbed(title='New Product instock', color = 4437377)
         embed.add_embed_field(name=f'**GRAIL STORE**', value = f'[{title}]({baseL})', inline = False)
-        #embed.add_embed_field(name='**SIZE**', value = " ".join(size), inline = False)
-        #embed.add_embed_field(name='**PROXY**', value = f"||a||", inline = False)
-        
+
         for i in range(len(size)):
             embed.add_embed_field(name=size[i], value=f'[atc]({atc[i]}) [load]({load[i]})', inline=True)
 
         embed.set_footer(text = f"Monitor by ste#7981", icon_url = settings['discord_icon_url'])
         webhook.add_embed(embed)
-        webhook.execute()
+        return webhook.execute()
 
     @staticmethod
     def printFormat():
@@ -137,3 +148,8 @@ class lib:
             else: 
                 # lib.printFail('Error on reading settings')
                 exit()
+
+    def writeFile(file: str, content: str):
+        with open(file, 'w') as f:
+            if f.writable():
+                f.write(content)
