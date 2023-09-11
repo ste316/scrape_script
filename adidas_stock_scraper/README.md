@@ -1,6 +1,8 @@
 # Adidas Stock Scraper
 ## This is a very easy tool to check stock numbers on Adidas sites
 
+![demo](https://github.com/ste316/scrape_script/blob/main/adidas_stock_scraper/demo/demo_adidas.png)
+
 ## Get Started
 * #### To run this script you need a [python interpreter](https://www.python.org/downloads/) and make sure to include pip during installation
 * #### After installing the python interpreter run `pip install -r requirements.txt`
