@@ -22,12 +22,12 @@
 * `discord_icon_url` must be a link to an image, that will show in webhook notifications
 
 ## Scraper
-* #### Product List pages
+* #### Product List page
     For example you can scrape this [page](https://www.grail-store.com/en/new/) and get all product links in it \
     Now you got a list filled by a lot of product links to scrape and get their infos
 
 * #### Product page
-    After you got a list of product links you can easly scrape each of them\
+    After you got a list of product links you can easily scrape each of them\
     You will get a lot of info about the product:
     * title
     * sku (the manufacturer id) 
