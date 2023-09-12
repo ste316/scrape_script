@@ -3,6 +3,9 @@ from random import choice
 from requests_html import HTMLSession # https://docs.python-requests.org/projects/requests-html/en/latest/
 from bs4 import BeautifulSoup as bs
 
+#########################################
+            # OUTDATED CODE #
+#########################################
 class bot():
     # TODO settare addy, ship, payment, terms uno alla volta
     def __init__(self, atc_link: list, proxies: list = []):

@@ -1,6 +1,5 @@
 from mainLib import lib
 from scrape import productScraper, mainPageScraper
-import time
 
 class monitor():
     def __init__(self, timeout: int) -> None:
@@ -11,24 +10,26 @@ class monitor():
 
         self.timeout = timeout
 
-    def monitorProductPage(self, link: str):
-        scraper = productScraper()
+    def monitorProductPage(self, link: str, send_webhook: bool = False):
+        from time import sleep
+        scraper = productScraper(self.proxies, True) # pass proxies and suppress info log
 
         while True:
-            res = scraper.scrapeProductPage(link, self.proxies)
+            res = scraper.scrapeProductPage(link) 
             if res != False: 
-                (load_links, atc_link, size, id, title, sku) = res
-                if len(size) > 0:
-                    lib.logConsole(f'Product instock - {title}')
-                    lib.printWebhook(size, title, link, atc_link, load_links)
-                else:
-                    lib.logConsole(f'Product oos - {title}')
+                if len(res['sizes']) > 0: # if there is at least 1 size
+                    lib.logConsole(f'Product instock - {res["title"]}')
+                    if send_webhook: lib.printWebhook(res['sizes'], res['title'], link, res['atc_links'], res['load_links'])
+                else: # product Out Of Stock
+                    lib.logConsole(f'Product oos - {res["title"]}')
             else: 
                 lib.logConsole('Product not loaded')
-            time.sleep(self.timeout)
+            sleep(self.timeout)
 
     def monitorMainPage(self, link:str):
-        scraper = mainPageScraper()
+        lib.logConsoleError('Unimplemented function exiting...')
+        exit()
+        scraper = mainPageScraper(link, self.proxies)
 
         while True:
             res = lib.retrivePage(link, self.proxies)
@@ -38,12 +39,5 @@ class monitor():
 
 if __name__ == '__main__':
     m = monitor(timeout=10)
-    link = 'https://www.grail-store.com/en/new-balance-550hg1-white-orange.html'
-    link = 'https://www.grail-store.com/en/new-balance-uxc72ec-black-grey-ivory.html'
-    m.monitorProductPage(link)
-
-    #m.monitorMainPage('https://www.grail-store.com/en/new-arrivals/')
-    
-
-# https://www.grail-store.com/en/new-balance-550hg1-white-orange.html
-# https://www.grail-store.com/en/new-balance-550hl1-white-light-blue.html
+    link = 'https://www.grail-store.com/en/new-balance-m2002rdn-dark-moss.html'
+    m.monitorProductPage(link, send_webhook=True)

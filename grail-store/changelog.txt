@@ -1,8 +1,8 @@
 TODO add error handling 
-
-DOING add functionalities to dump all data scraped
-DOING add functionalities to send batch of webhook checking retry_in, or using timeout
+TODO SCRAPE.py add functionalities to send batch of webhook checking retry_in, or using timeout
+TODO MONITOR.py add cached link to not send a webhook every time
 
 DONE mainLib.printWebhook add load and atc for each size
 DONE productScraper.scrapeProductPage reorganize function to return a dict
 DONE add random parameters to make any requests
+DONE add functionalities to dump all data scraped
