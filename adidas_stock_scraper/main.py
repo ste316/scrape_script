@@ -65,7 +65,7 @@ class adidasStockScraper:
             'Connection': 'keep-alive',
             'DNT': '1', # request to not being tracked by the site
             'Host': self.domain,
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36' #self.get_random_agent()
+            'User-Agent': self.get_random_agent()
         }
 
     # return a random user agent from a pre defined list
