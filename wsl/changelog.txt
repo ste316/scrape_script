@@ -1,3 +1,4 @@
+TODO improve logging message
 TODO add multi thread support
 TODO scrape https://www.withoutstupidlabel.it/
         if <a> data-testid="linkElement" 

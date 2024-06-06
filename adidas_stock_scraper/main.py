@@ -103,7 +103,7 @@ class adidasStockScraper:
                 totalStock = 0
                 toPrint = ''
 
-                tool.printWarn(f'[{tool.getTime()}] [ADIDAS] Product {tool.PURPLE}{res["id"]}{tool.ENDC} link: {tool.PURPLE}{self.getPageOf(pid)}{tool.ENDC}')
+                tool.printWarn(f'[{tool.getTime()}] [PID] Product {tool.PURPLE}{res["id"]}{tool.ENDC} link: {tool.PURPLE}{self.getPageOf(pid)}{tool.ENDC}')
                 for variation in res['variation_list']:
                     toPrint=f'[{tool.getTime()}] [PID info] Size: {variation["size"]}{" "*4 if len(str(variation["size"])) == 2 else ""} Stock Available: {variation["availability"]} Status: {variation["availability_status"]}\n'
 

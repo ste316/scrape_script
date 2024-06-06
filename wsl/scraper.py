@@ -24,7 +24,7 @@ class WSLscraper():
         self.timeout = timeout
         if loadCachedLink: self.urls.update(util.loadCachedLink())
 
-    def getproductInfo(self, link: str):
+    def getProductInfo(self, link: str):
         res = self.sess.get(link)
         if res.status_code == 200:
             soup = BeautifulSoup(res.content, features='html.parser')
@@ -103,7 +103,7 @@ class WSLscraper():
                 for i in range(len(result)):
                     if result[i].text not in self.urls:
                         for j in range(3): # try maximum 3 times
-                            info = self.getproductInfo(result[i].text)
+                            info = self.getProductInfo(result[i].text)
                             if not info[0] and not info[1] and not info[2]:
                                 continue
                             break
@@ -128,13 +128,5 @@ class WSLscraper():
             print('CTRL C detected, exiting')
 
 if __name__ == '__main__':
-    main = WSLscraper(3, False)
+    main = WSLscraper(1, True)
     main.run(True)
-
-'''
-'''
-
-
-# https://www.withoutstupidlabel.it/sitemap.xml
-# https://www.withoutstupidlabel.it/cart-page
-# https://www.withoutstupidlabel.it/checkout?appSectionParams=
