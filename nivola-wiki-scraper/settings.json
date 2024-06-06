@@ -1,0 +1,22 @@
+{
+    "wiki_index": "https://nivola-userguide.readthedocs.io/it/latest/",
+    "blacklist": [
+        "https://nivola-userguide.readthedocs.io/it/latest/",
+        "https://nivola-userguide.readthedocs.io/it/latest/Come_muovere_primi_passi/index_Come_muovere_primi_passi.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/index_come_fare_per.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/11.0_Lavorare_con_VM.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/05.0_Creare_Accreditare_Utente.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/15.0_Lavorare_con_i_servizi_di_rete.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/30.0_Strumenti.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/100.0_Assistenza.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/100.01_Assistenza_Master.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/100.02_Assistenza_ammBO.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Linee_guida/index_linee_guida.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Linee_guida/9_Linee_guida_raccomandazioni_uso_sicuro_soluzioni_cloud.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Linee_guida/9.4_Gestione_degli_errori_e_meccanismi_di_logging.html",
+        "https://nivola-userguide.readthedocs.io/it/latest/Glossario/index_Glossario.html"
+    ],
+    "override": true,
+    "enable_en_translation": false,
+    "deepl_api_key": ""
+}

@@ -1,0 +1,518 @@
+[
+    {
+        "hash": "3d95a0a17f4dd817c4ce9280c6783b706c2b5d83184b606752020e43088385c1",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Linee_guida/1_Modelli_di_rete.html#rupar-cloud-csi",
+        "title": "rupar cloud csi",
+        "category": "linee guida/rupar cloud csi",
+        "keywords": "rete, servizi, sistemi, rupar",
+        "list": [
+            "Internet, si riferisce ad un piano di indirizzamento pubblico;",
+            "Front-end (RUPAR), si riferisce ad indirizzi della rete RUPAR per condividere ed accedere a sistemi e servizi con altri Enti della PA; questi sistemi possono essere raggiunti dalla rete internet tramite NAT e Bilanciatore;",
+            "Back-end (RUPAR), si riferisce ad indirizzi IP privati non raggiungibili tramite internet e che consentono la comunicazione solo con sistemi e servizi sulla stessa sotto ret o con la front-end corrispondente."
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "questo tipo di modello di rete è stato pensato per ospitare gli asset del csi, utilizzati per erogare servizi per i propri clienti. l'immagine sottostante descrive le possibili comunicazioni di rete: sono presenti tre reti: internet, si riferisce ad un piano di indirizzamento pubblico; front-end (rupar), si riferisce ad indirizzi della rete rupar per condividere ed accedere a sistemi e servizi con altri enti della pa; questi sistemi possono essere raggiunti dalla rete internet tramite nat e bilanciatore; back-end (rupar), si riferisce ad indirizzi ip privati non raggiungibili tramite internet e che consentono la comunicazione solo con sistemi e servizi sulla stessa sotto ret o con la front-end corrispondente."
+    },
+    {
+        "hash": "8db6e3463d2a1f6a7a3a63bc8d8114a58c4f635c14a1245d3cfd0673899c6436",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Linee_guida/1_Modelli_di_rete.html#rupar-cloud-enti",
+        "title": "rupar cloud enti",
+        "category": "linee guida/rupar cloud enti",
+        "keywords": "sistemi, rete, servizi, rupar, enti",
+        "list": [
+            "Internet, si riferisce ad un piano di indirizzamento pubblico;",
+            "Front-end (RUPAR), si riferisce ad indirizzi della rete RUPAR per condividere ed accedere a sistemi e servizi con altri Enti della PA o del CSI; questi sistemi possono essere raggiunti dalla rete internet tramite NAT e Bilanciatore"
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "questo tipo di modello è stato ideato per ospitare i servizi degli enti che intendono avvalersi del cloud del csi. l'immagine sottostate descrive le possibili comunicazioni di rete: sono presenti due reti: internet, si riferisce ad un piano di indirizzamento pubblico; front-end (rupar), si riferisce ad indirizzi della rete rupar per condividere ed accedere a sistemi e servizi con altri enti della pa o del csi; questi sistemi possono essere raggiunti dalla rete internet tramite nat e bilanciatore"
+    },
+    {
+        "hash": "af2610cb6a0bdcbeb297f656b41b47fb446eba444f0c7854dfbe55387de81aae",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Linee_guida/1_Modelli_di_rete.html#private-cloud-internet",
+        "title": "private cloud internet",
+        "category": "linee guida/private cloud internet",
+        "keywords": "tipo, idoneo, private, internet, modello",
+        "list": [],
+        "table": {},
+        "required_role": [],
+        "text": "questo tipo di modello è idoneo per gli enti non in rupar o per le aziende che intendono utilizzare il csi come proprio cloud provider. sono presenti due reti: - internet, si riferisce ad un piano di indirizzamento pubblico; - privata, si riferisce ad indirizzi privati (non rupar) con i quali è possibile comunicare solo all'interno di questa sottorete o con internet."
+    },
+    {
+        "hash": "b24f29e576b386968f6bbd7b665fdd3d6120c67e0b99499a0af71d56f2ed9644",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Linee_guida/1_Modelli_di_rete.html#private-cloud-rupar",
+        "title": "private cloud rupar",
+        "category": "linee guida/private cloud rupar",
+        "keywords": "tipo, private, cloud, rupar, modello, funzionale",
+        "list": [
+            "RUPAR, si riferisce ad un piano di indirizzamento RUPAR dell'Ente;",
+            "Privata, si riferisce ad indirizzi privati (non RUPAR) con i quali è possibile comunicare solo all'interno di questa sottorete o con la rete RUPAR dell'Ente."
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "questo tipo di modello è funzionale per gli enti che sono in rupar, che hanno un proprio accesso verso internet e che vogliono usarlo per i propri servizi ospitati sul cloud del csi. l'immagine sottostante descrive questo scenario: rupar, si riferisce ad un piano di indirizzamento rupar dell'ente; privata, si riferisce ad indirizzi privati (non rupar) con i quali è possibile comunicare solo all'interno di questa sottorete o con la rete rupar dell'ente."
+    },
+    {
+        "hash": "aef157097a86e84f1237dc1e3369dd1a1c8df404081c135d73150ba49e81055e",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/11.14_Rimuovere_SG.html#rimozione-sg-da-istanza-vm",
+        "title": "rimozione sg da istanza vm",
+        "category": "come fare per/rimozione sg da istanza vm",
+        "keywords": "sistema, parte, clic, istanza, rimozione",
+        "list": [
+            "Individuare il sever, dall'Elenco VM, mettendo una spunta a fianco del nome;",
+            "Fare clic sul pulsante:",
+            "Raggiungere la sezione ;",
+            "Premere, il pulsante , a fianco dell'oggetto da rimuovere;",
+            "Il sistema eliminerà, dalla lista, il SG."
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "la funzione rientra nel servizio compute. la rimozione del security group è attivabile dalla parte sinistra dello schermo, cliccando sulla label vm, sotto compute a seguito di un clic su vm, il sistema popolerà la parte destra del video con l'elenco delle vm. per rimuovere security group*, dall'istanza, procedere in questo modo: individuare il sever, dall'elenco vm, mettendo una spunta a fianco del nome; fare clic sul pulsante: raggiungere la sezione ; premere, il pulsante , a fianco dell'oggetto da rimuovere; il sistema eliminerà, dalla lista, il sg."
+    },
+    {
+        "hash": "9c0b751c1167d07558dcf375c8620e1622d449b55a927d9d7a2377844afd9118",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/30.7_Servizio_di_Log_Management.html#caratteristiche-del-servizio",
+        "title": "caratteristiche del servizio",
+        "category": "come fare per/caratteristiche del servizio",
+        "keywords": "log, servizio, accesso, caratteristiche",
+        "list": [
+            "È possibile la definizione di ruoli e utenze a seconda delle esigenze di accesso ai dati;",
+            "Accesso a determinate aree di lavoro in modo controllato e filtrato da apposite policy;",
+            "Accesso e gestione degli indici a seconda del tipo di privilegi in possesso;",
+            "Cluster e servizio di Log Management completamente gestiti e amministrati.",
+            "il backup dei dati;",
+            "il monitoraggio della disponibilità infrastrutturale;",
+            "l'aggiornamento tecnologico e di sicurezza della piattaforma"
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "il servizio permette la gestione dei log applicativi e di sistema delle istanze utente, attraverso uno stack distribuito costituito da più moduli, accessibile attraverso un'applicazione front-end che funge da interfaccia utente basato su suite elk. viene messa a disposizione un'area di lavoro, accessibile attraverso un'applicazione front-end web, che permette la gestione, l'interrogazione e la visualizzazione degli indici e dei relativi dati. è richiesta l'installazione di un agent sulle macchine client per l'invio dei log al sistema. di seguito le principali caratteristiche relative alla modalità di erogazione del servizio: è possibile la definizione di ruoli e utenze a seconda delle esigenze di accesso ai dati; accesso a determinate aree di lavoro in modo controllato e filtrato da apposite policy; accesso e gestione degli indici a seconda del tipo di privilegi in possesso; cluster e servizio di log management completamente gestiti e amministrati. rientrano in queste competenze: il backup dei dati; il monitoraggio della disponibilità infrastrutturale; l'aggiornamento tecnologico e di sicurezza della piattaforma"
+    },
+    {
+        "hash": "94cd1d4f1480eb8073e90d71ff0dbf7a76b2046262501a9e809bb59fbcfd077d",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/30.7_Servizio_di_Log_Management.html#modalita-di-accesso",
+        "title": "modalità di accesso",
+        "category": "come fare per/modalità di accesso",
+        "keywords": "pagina, accesso, log, modalità, space",
+        "list": [],
+        "table": {},
+        "required_role": [],
+        "text": "la funzione rientra nel menù strumenti. l'accesso è attivabile dalla parte sinistra dello schermo, cliccando sulla label spaces, sotto log management dalla pagina elenco spaces, cliccare sul link presente sotto il titolo il sistema aprirà una nuova finestra con l'accesso alla pagina di elastic: selezionare quindi l'area di lavoro, detta anche space una volta scelto lo space si viene indirizzati sulla pagina di discover, dove sono presenti tutti i log ed è possibile selezionare i campi di interesse, filtrare e fare query nella pagina dashboard invece sono presenti delle schermate riassuntive che permettono di avere una vista d'insieme"
+    },
+    {
+        "hash": "eded916074501e7bc96f5a98528ce83a7d1f6941014b7b3d24f212a6f91dca5a",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/04_Master_di_Division.html#master-di-division",
+        "title": "master di division",
+        "category": "come fare per/master di division",
+        "keywords": "master, servizi, dettaglio, division, account",
+        "list": [
+            "Accedere al Service Portal come Master di Division",
+            "Premere sulla scheda Gestione Divisione → Struttura Organizzativa → Accounts",
+            "Nome dell'organizzazione",
+            "Nome delle divisione",
+            "Nome dell'account",
+            "Descrizione dell'account",
+            "Gestione dell'account (SI/NO)",
+            "Stato dell'account",
+            "Refresh dell'elenco Account",
+            "Elenco Attività dell'account",
+            "Visualizzazione dettaglio account",
+            "DETTAGLIO fornisce all'utente informazioni dettagliate sull'account",
+            "UTENTI fornisce l'elenco degli utenti con accesso all'account scelto con possibilità di maggiori dettagli selezionandoli dal checkbox e premendo il tasto 'Dettagli' in alto a destra",
+            "CONSUMI per un dettaglio sulle spese dell'account",
+            "SERVIZI come elenco dei servizi aggiuntivi richiesti per l'account, che vanno da VM a DataBase, a Storage, ecc…",
+            "QUOTE",
+            "SERVIZI DI GESTIONE ABILITATI per un elenco dei servizi di gestione dell'account richiesti o attivabili",
+            "ALLEGATI",
+            "WBS"
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "per visualizzare i dettagli degli account sotto una divisione procedere nel seguente modo: ● accedere al service portal come master di division ● premere sulla scheda gestione divisione → struttura organizzativa → accounts premendo su accounts, il portale restituisce l'elenco degli account appartenenti alla divisione in questa pagina si possono vedere le specifiche generali degli account: ● nome dell'organizzazione ● nome delle divisione ● nome dell'account ● descrizione dell'account ● gestione dell'account (si/no) ● stato dell'account le funzionalità disponibili in questa pagina sono le seguenti: ● refresh dell'elenco account selezionando un account e selezionando il checkbox alla sua sinistra si abilitano le seguenti funzioni: ● elenco attività dell'account ● visualizzazione dettaglio account premendo il bottone dettaglio account, l'utente visualizza la pagina di dettaglio dell'account selezionato: ci sono diverse schede nel dettaglio account: ● dettaglio fornisce all'utente informazioni dettagliate sull'account ● utenti fornisce l'elenco degli utenti con accesso all'account scelto con possibilità di maggiori dettagli selezionandoli dal checkbox e premendo il tasto 'dettagli' in alto a destra ● consumi per un dettaglio sulle spese dell'account ● servizi come elenco dei servizi aggiuntivi richiesti per l'account, che vanno da vm a database, a storage, ecc… ● quote ● servizi di gestione abilitati per un elenco dei servizi di gestione dell'account richiesti o attivabili ● allegati ● wbs accedendo al tab servizi si trovano i servizi di compute, database, storage, security group, vpc, volumi, logging, monitoraggi dell'account scelto:"
+    },
+    {
+        "hash": "b70d08286a420ca172bb032fc7398bbcc1924dea8d9de0b92de291e639774019",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Overview_Nivola/2_Concetti_Base.html#le-availability-zones",
+        "title": "le availability zones",
+        "category": "overview nivola/le availability zones",
+        "keywords": "data, availability, servizi, zone, zones",
+        "list": [],
+        "table": {},
+        "required_role": [],
+        "text": "sono le aree geografiche in cui risiedono i data center dei fornitori di servizi di cloud pubblico. le aziende clienti scelgono una o più zone di disponibilità per i loro servizi a seconda delle esigenze aziendali. le availability zones sono zone di disponibilità costituite da infrastrutture indipendenti, isolate e ospitate all'interno dei data center del csi piemonte. in fase di creazione dei propri servizi è possibile scegliere l'availability zone in base a specifiche esigenze di distribuzione geografica mantenendo inalterata l'alta affidabilità."
+    },
+    {
+        "hash": "ca392cfd6723f75c95d7b3b589fc96fc5088f52014d281f6131c6432b096c2b7",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Overview_Nivola/2_Concetti_Base.html#la-struttura-organizzativa",
+        "title": "la struttura organizzativa",
+        "category": "overview nivola/la struttura organizzativa",
+        "keywords": "risorse, divisione, struttura, organizzativa",
+        "list": [
+            "Organizzazione: è gerarchicamente l'entità organizzativa più elevata e può coincidere con il nome del cliente ad esempio 'Regione Piemonte', 'Csi Piemonte' e così via. Nella piattaforma le risorse sono a disposizione di varie organizzazioni, che sono però dal punto di vista logico completamente separate e indipendenti;",
+            "Divisione: è il secondo livello organizzativo. Una organizzazione può avere più divisioni. Il concetto di Divisione rappresenta quindi una suddivisione logica dell'Organizzazione, e può riflettere dunque una divisione di tipo territoriale, organizzativa o di tipo di business; inoltre ciascuna Divisione controlla le risorse e i consumi di ciascun Account all'interno della Divisione>;",
+            "Account: è l'ultimo livello organizzativo e dipende dalla Divisione. Una Divisione contiene uno o più Account. L'Account è il livello organizzativo all'interno del quale l'Utente potrà creare, controllare e gestire i propri servizi. E' possibile creare molteplici Account con lo scopo di separare progetti differenti, oppure distinguere ambienti di sviluppo da quelli di produzione oppure allo scopo di suddividere la rendicontazione dei consumi."
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "all'interno di nivola sarà possibile modellare una struttura organizzativa su tre livelli in modo da permettere di attribuire responsabilità e gestione dei servizi secondo una gerarchia precisa. nell'account sarà istanziata l'infrastruttura in modo da soddisfare il fabbisogno tecnologico e di sicurezza necessario. alla divisione è demandato il compito di controllo del consumo delle risorse degli account che potrà creare in assoluta autonomia. il vertice della struttura è costituito dall'organizzazione che avrà la visione completa dell'utilizzo della piattaforma con la possibilità di declinarla in base alle divisioni e agli account. la struttura organizzativa è la suddivisione gerarchica che permette di personalizzare i servizi, l'accesso o le impostazioni per diversi gruppi di utenti o dispositivi. nella piattaforma nivola la struttura organizzativa si articola su 3 livelli: organizzazione: è gerarchicamente l'entità organizzativa più elevata e può coincidere con il nome del cliente ad esempio 'regione piemonte', 'csi piemonte' e così via. nella piattaforma le risorse sono a disposizione di varie organizzazioni, che sono però dal punto di vista logico completamente separate e indipendenti; divisione: è il secondo livello organizzativo. una organizzazione può avere più divisioni. il concetto di divisione rappresenta quindi una suddivisione logica dell'organizzazione, e può riflettere dunque una divisione di tipo territoriale, organizzativa o di tipo di business; inoltre ciascuna divisione controlla le risorse e i consumi di ciascun account all'interno della divisione]; account: è l'ultimo livello organizzativo e dipende dalla divisione. una divisione contiene uno o più account. l'account è il livello organizzativo all'interno del quale l'utente potrà creare, controllare e gestire i propri servizi. e' possibile creare molteplici account con lo scopo di separare progetti differenti, oppure distinguere ambienti di sviluppo da quelli di produzione oppure allo scopo di suddividere la rendicontazione dei consumi. si noti che tutte le risorse e i servizi sono associabili solo a livello di account. non è possibile associare i servizi alle divisioni o alle organizzazioni. l'account rappresenta quindi il contenitore in cui vengono implementati e resi disponibili tutti i servizi utente. la gestione delle risorse utente avverrà quindi a livello di account con dei ruoli abilitati ad operare a questo livello."
+    },
+    {
+        "hash": "2e237d3e6954be83cf852c76dd79d5b0b596a1baf31c48217c79641b5b8823c6",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Overview_Nivola/2_Concetti_Base.html#utenti-ruoli-ed-account",
+        "title": "utenti ruoli ed account",
+        "category": "overview nivola/utenti ruoli ed account",
+        "keywords": "utenti, master, account, ruoli",
+        "list": [
+            "Un Master di Organizzazione può accreditare o revocare utenti all'interno delle proprie divisioni o account",
+            "Un Master di Divisione può accreditare o revocare utenti all'interno dei propri account e della propria divisione.",
+            "Un Master di Account può accreditare o revocare utenti all'interno del proprio account.",
+            "L'Amministratore di Backoffice può accreditare o revocare ruoli agli utenti a qualsiasi livello della struttura gerarchica."
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "si possono distinguere più ruoli all'interno della piattaforma, che si correlano alla struttura organizzativa definita. ad ogni ruolo può corrispondere almeno un utente, e quindi almeno una persona fisica che svolge quella funzione. una persona registrata sul sistema può essere associata a più ruoli anche su strutture organizzative differenti. ad esempio un utente può avere ruoli differenti su account anche di divisioni distinte. ad oggi all'interno del sistema sono implementati i seguenti ruoli utente. master di organizzazione: questo ruolo rappresenta gli utenti che possono svolgere funzioni amministrative all'interno dell'organizzazione quali la creazione, sempre all'interno dell'organizzazione di pertinenza, delle divisioni e degli account; può inoltre profilare gli utenti per renderli operativi all'interno della propria struttura ed eventualmente registrare utenti non ancora presenti sulla piattaforma. il master di organizzazione può monitorare i costi e lo stato delle risorse a tutti i livelli della propria struttura organizzativa (divisioni e account) e visualizzarne i relativi report. non ha però accesso alle funzioni di gestione (creazione/modifica/cancellazione) delle risorse associate agli account della propria organizzazione. master di divisione: questo ruolo rappresenta gli utenti che possono svolgere funzioni amministrative all'interno della divisione quali la creazione, sempre all'interno della divisione di pertinenza, degli account; può inoltre profilare gli utenti per renderli operativi all'interno della propria struttura ed eventualmente ha la possibilità di registrare utenti non ancora presenti sulla piattaforma. il master di organizzazione può monitorare i costi e lo stato delle risorse a tutti i livelli della propria struttura organizzativa (account) e visualizzarne i relativi report. non ha però accesso alle funzioni di gestione (creazione/modifica/cancellazione) delle risorse associate agli account della propria divisione. amministratore di back office: utente che all'interno del sistema ha privilegi sulle funzioni di backoffice (registrazione nuovi utenti, accreditamento, creazione livelli organizzativi) e monitoraggio costi e stato della piattaforma. l'amministratore di backoffice può profilare utenti con ruoli a qualsiasi livello della struttura organizzativa. può inoltre accedere ai report dei costi e consumi aggregati a qualsiasi livello. il ruolo è solitamente associato a utenti dei gruppi di gestione e supporto csi piemonte. master di account: utente che all'interno dell'account può gestire tutte le risorse, sulle quali ha quindi il massimo dei privilegi. il master di account può quindi creare/cancellare/modificare le risorse, può anche gestire le risorse create da altri utenti nell'account. il master di account può visualizzare e accedere ai report dei costi e dei consumi relativamente al proprio account. il master di account può registrare nuovi utenti all'interno del proprio account e può profilare o revocare utenti già censiti ad accedervi. viewer di account: utente che all'interno dell'account può visualizzare tutte le risorse, sulle quali non ha però privilegi di modifica/cancellazione. il viewer di account può quindi visualizzare l'elenco dei servizi attivi sull'account , può visualizzarne il dettaglio, ma non ha possibilità di attivarne di nuovi e modificarne lo stato. il viewer di account può visualizzare e accedere ai report dei costi e dei consumi aggregati dell'account. il viewer di account non può registrare nuovi utenti all'interno della piattaforma e non può profilare altri utenti ad accedervi. operatore di account: stessi privilegi del , con in più la possibilità di abilitare monitoraggio e logging, di creare nuovo utente, apertura di ticket per attivazione di alcune specifiche tipologie di servizi, connessione vm, gestione chiavi ssh, autorizzazioni shares, modifica security group. la fase di introduzione di un nuovo utente si articola in questo modo: un master, nel limite dei privilegi del suo livello gerarchico, può accreditare un utente registrato sulla piattaforma assegnandogli un ruolo, in questo modo gli concede dei permessi per svolgere determinate funzioni che faranno ricadere il nuovo utente in un determinato gruppo. la stessa operazione può essere effettuata e delegata all'operatore di backoffice. riassumendo: un master di organizzazione può accreditare o revocare utenti all'interno delle proprie divisioni o account un master di divisione può accreditare o revocare utenti all'interno dei propri account e della propria divisione. un master di account può accreditare o revocare utenti all'interno del proprio account. l'amministratore di backoffice può accreditare o revocare ruoli agli utenti a qualsiasi livello della struttura gerarchica."
+    },
+    {
+        "hash": "06e6700de2d461347efc3b2d06b953a0192cbeba644af32b9185fc3e3274637c",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id27",
+        "title": "glossario id 27",
+        "category": "glossario/glossario id 27",
+        "keywords": "servizio, backup, glossario, programmazione",
+        "list": [],
+        "table": {
+            "ACCOUNT": "Contenitore di istanze di servizio Per gli Account dell'Organizzazione CSI il nome con cui identificarlo è il codice prodotto. Per i prodotti del CSI è previsto un Account per l'ambiente di produzone ed un altro per gli altri denominato preprod.",
+            "API": "Application Programming Interface (in italiano traducibile come Interfaccia di programmazione di un'applicazione), le API sono strumenti di programmazione messi a disposizione degli sviluppatori per facilitare il loro compito nella realizzazione di applicazioni integrate.",
+            "APP Engine": "Template preconfigurato composto da risorse elaborative, database, storage, reti e sicurezza che implementa una particolare funzione",
+            "Availability Zone (AZ)": "Aggregato di uno o più Site. L'AZ è caratterizzata da una sua completa autonomia infrastrutturale e indipendenza",
+            "BCKaaS": "Il servizio di backup as a service è un'opzione attivabile dall'utente per il backup delle macchine virtuali attivate in Nivola. Il Cliente può scegliere se attivare il backup sulle risorse selezionate e scegliere i livelli di retention più appropriati per il proprio servizio. Il servizio viene erogato attraverso piattaforme che permettono una notevole affidabilità infrastrutturale, e attraverso la funzione di 'deduplica dei dati', per il raggiungimento di una elevata efficienza. I backup sono depositati su apparati storage differenti da quelli che ospitano dati e servizi ."
+        },
+        "required_role": [],
+        "text": "1.1 a acronimo/termine significato account contenitore di istanze di servizio per gli account dell'organizzazione csi il nome con cui identificarlo è il codice prodotto. per i prodotti del csi è previsto un account per l'ambiente di produzone ed un altro per gli altri denominato preprod. api application programming interface (in italiano traducibile come interfaccia di programmazione di un'applicazione), le api sono strumenti di programmazione messi a disposizione degli sviluppatori per facilitare il loro compito nella realizzazione di applicazioni integrate. app engine template preconfigurato composto da risorse elaborative, database, storage, reti e sicurezza che implementa una particolare funzione availability zone (az) aggregato di uno o più site. l'az è caratterizzata da una sua completa autonomia infrastrutturale e indipendenza [b] 1.2 b acronimo/termine significato bckaas il servizio di backup as a service è un'opzione attivabile dall'utente per il backup delle macchine virtuali attivate in nivola. il cliente può scegliere se attivare il backup sulle risorse selezionate e scegliere i livelli di retention più appropriati per il proprio servizio. il servizio viene erogato attraverso piattaforme che permettono una notevole affidabilità infrastrutturale, e attraverso la funzione di 'deduplica dei dati', per il raggiungimento di una elevata efficienza. i backup sono depositati su apparati storage differenti da quelli che ospitano dati e servizi . [c]"
+    },
+    {
+        "hash": "7bd73d2421408492e14184438a3db500db09150b288d4b7f1556a7a8610b6476",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id28",
+        "title": "glossario id 28",
+        "category": "glossario/glossario id 28",
+        "keywords": "risorse, divisione, servizi, glossario",
+        "list": [],
+        "table": {
+            "Capability": "Attributo essenziale dell'account per istanziare i servizi. E' assegnato all'account in fase di creazione. A fronte di un account è possibile avere più capabilities.",
+            "CLI": "Command Line Interface - nel progetto Nivola trattasi di command interface dedicata alla gestione di tutte le risorse della CMP. L'utilizzo è possibile anche per gli utenti accreditati e i propri fornitori attraverso opportuna profilazione.",
+            "CMP": "Cloud Management Platform - piattaforma di integrazione ed automazione che espone tutti i servizi di business attraverso API (Application programming Interface) richiamabili dall'utente o attraverso l'uso del Service Portal. Include i servizi di accounting, profilazione, security.",
+            "Compute Services": "Insieme di funzioni utili a creare e gestire e le Virtual Machine Categoria di servizi che permette di fruire di risorse elaborative (espresse in CPU, RAM e spazio disco) in differenti flavour e template, corredate da servizi di networking e security. Sulla base del perimetro delle risorse presenti, gli utilizzatori saranno in grado di realizzare i propri tenant, istanziare le macchine virtuali selezionandole da un ampio catalogo di template e di gestirle in modo autonomo e integrato con gli altri servizi disponibili.",
+            "Consumer": "User utilizzare della piattaforma Nivola",
+            "Divisione": "E' il secondo livello organizzativo. Una organizzazione può avere più divisioni. Ogni Divisione ha ha associato un portafoglio chiamato Wallet che ne definisce il limite di spesa. Per un Cliente esterno può coincidere con il valore della determina o con una pòarte di essa. Non può esserci una Divisione senza un Organizzazione da cui dipendere. Nel caso l'organizzazione della divisione sia CSI il suo nome dovrà coincidere sempre l'ID della Soluzione applicativa. Nel caso l'ID non sia stato attrubuito usare  in attesa che venga attribuito",
+            "DBaaS": "'Data Base as a Service' sono servizi gestiti costituiti da ambienti virtuali dedicati in differenti configurazioni e tecnologie, con differenti livelli di affidabilità e ridondanza in funzione delle esigenze del Cliente. Sono inclusi i servizi di backup, restore, monitoraggio, aggiornamento e patching."
+        },
+        "required_role": [],
+        "text": "1.3 c acronimo/termine significato capability attributo essenziale dell'account per istanziare i servizi. e' assegnato all'account in fase di creazione. a fronte di un account è possibile avere più capabilities. cli command line interface - nel progetto nivola trattasi di command interface dedicata alla gestione di tutte le risorse della cmp. l'utilizzo è possibile anche per gli utenti accreditati e i propri fornitori attraverso opportuna profilazione. cmp cloud management platform - piattaforma di integrazione ed automazione che espone tutti i servizi di business attraverso api (application programming interface) richiamabili dall'utente o attraverso l'uso del service portal. include i servizi di accounting, profilazione, security. compute services insieme di funzioni utili a creare e gestire e le virtual machine categoria di servizi che permette di fruire di risorse elaborative (espresse in cpu, ram e spazio disco) in differenti flavour e template, corredate da servizi di networking e security. sulla base del perimetro delle risorse presenti, gli utilizzatori saranno in grado di realizzare i propri tenant, istanziare le macchine virtuali selezionandole da un ampio catalogo di template e di gestirle in modo autonomo e integrato con gli altri servizi disponibili. consumer user utilizzare della piattaforma nivola [d] 1.4 d acronimo/termine significato divisione e' il secondo livello organizzativo. una organizzazione può avere più divisioni. ogni divisione ha ha associato un portafoglio chiamato wallet che ne definisce il limite di spesa. per un cliente esterno può coincidere con il valore della determina o con una pòarte di essa. non può esserci una divisione senza un organizzazione da cui dipendere. nel caso l'organizzazione della divisione sia csi il suo nome dovrà coincidere sempre l'id della soluzione applicativa. nel caso l'id non sia stato attrubuito usare in attesa che venga attribuito dbaas 'data base as a service' sono servizi gestiti costituiti da ambienti virtuali dedicati in differenti configurazioni e tecnologie, con differenti livelli di affidabilità e ridondanza in funzione delle esigenze del cliente. sono inclusi i servizi di backup, restore, monitoraggio, aggiornamento e patching. [e]"
+    },
+    {
+        "hash": "b3d911c7abbc5d26df30d26b7199670f41acacc9183de2a15a74b386fb7f3dc5",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id30",
+        "title": "glossario id 30",
+        "category": "glossario/glossario id 30",
+        "keywords": "glossario, tipologie, flavour, differenti",
+        "list": [],
+        "table": {
+            "FLAVOUR Alias TYPE": "Identificano le differenti tipologie di VM le cui caratteristiche differiscono per la quantità di risorse CPU, RAM e DISCO. L'utente può scegliere tra diversi flavour in base delle proprie esigenze."
+        },
+        "required_role": [],
+        "text": "1.6 f acronimo/termine significato flavour alias type identificano le differenti tipologie di vm le cui caratteristiche differiscono per la quantità di risorse cpu, ram e disco. l'utente può scegliere tra diversi flavour in base delle proprie esigenze. [g]"
+    },
+    {
+        "hash": "86e9866cd61dd16b84c0d91ada21f763da9c9a17348fc6271970a6986f49ac1f",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id33",
+        "title": "glossario id 33",
+        "category": "glossario/glossario id 33",
+        "keywords": "glossario, software",
+        "list": [],
+        "table": {
+            "Immagine": "Parametro che determina l'OS della VM da istanziare eventualmente arricchito del software per l'automazione come p.e. ansible o heat"
+        },
+        "required_role": [],
+        "text": "1.9 i acronimo/termine significato immagine parametro che determina l'os della vm da istanziare eventualmente arricchito del software per l'automazione come p.e. ansible o heat [j]"
+    },
+    {
+        "hash": "2d580782185bf06bdf178a8bdf74b998e26888ebda5fb9067b5cfe53e8339dff",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id35",
+        "title": "glossario id 35",
+        "category": "glossario/glossario id 35",
+        "keywords": "creazione, momento, glossario, connessione",
+        "list": [],
+        "table": {
+            "KEY": "Chiave ssh usata al momento della creazione della VM abilitando la connessione da remoto."
+        },
+        "required_role": [],
+        "text": "1.11 k acronimo/termine significato key chiave ssh usata al momento della creazione della vm abilitando la connessione da remoto. [l]"
+    },
+    {
+        "hash": "55b4bc88e7192c419edb6a1f556b8b1c93fc2a4a06e4a3a081b049c08bdca71b",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id38",
+        "title": "glossario id 38",
+        "category": "glossario/glossario id 38",
+        "keywords": "glossario, complesso, servizi, componenti",
+        "list": [],
+        "table": {
+            "Nivola": "Ci si riferisce al complesso di tutte le componenti della piattaforma: Service Portal, CMP, back-end .",
+            "NMSF": "Nuovo Modello Server Farm",
+            "NSC": "Nivola Support Center - Single Point of Contact per tutti i servizi cloud (Nivola, NMSF, POSC)"
+        },
+        "required_role": [],
+        "text": "1.14 n acronimo/termine significato nivola ci si riferisce al complesso di tutte le componenti della piattaforma: service portal, cmp, back-end . nmsf nuovo modello server farm nsc nivola support center - single point of contact per tutti i servizi cloud (nivola, nmsf, posc) [o]"
+    },
+    {
+        "hash": "2ecc735eee1d780ac5ded823c60cbc1a1b259795db611e49ac63149ad56e9ad8",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id39",
+        "title": "glossario id 39",
+        "category": "glossario/glossario id 39",
+        "keywords": "organizzazione, glossario, livello, massimo",
+        "list": [],
+        "table": {
+            "Organizzazione": "E' gerarchicamente il massimo livello organizzativo. Dall'Organizzazione possono dipendere 1 o più Divisioni. Ad un organizzazione può coincidere un Ente. Il nome sarà sempre CSI per tutto ciò che dovrà ospitare prodotti del CSI."
+        },
+        "required_role": [],
+        "text": "1.15 o acronimo/termine significato organizzazione e' gerarchicamente il massimo livello organizzativo. dall'organizzazione possono dipendere 1 o più divisioni. ad un organizzazione può coincidere un ente. il nome sarà sempre csi per tutto ciò che dovrà ospitare prodotti del csi. [p]"
+    },
+    {
+        "hash": "b4effb4a3dd6bf30708288647eb68293eaf72cb0f4ef6d401d5a92ea4ff96727",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id40",
+        "title": "glossario id 40",
+        "category": "glossario/glossario id 40",
+        "keywords": "veste, glossario, infrastrutture, rete",
+        "list": [],
+        "table": {
+            "Provider": "CSI Piemonte, nella sua veste di Cloud provider",
+            "POD": "Point Of Delivery - aggregato di infrastrutture elaborative, storage, rete e sicurezza autoconsistenti"
+        },
+        "required_role": [],
+        "text": "1.16 p acronimo/termine significato provider csi piemonte, nella sua veste di cloud provider pod point of delivery - aggregato di infrastrutture elaborative, storage, rete e sicurezza autoconsistenti [q]"
+    },
+    {
+        "hash": "107cfda54a9d7937d92ad19ec06c9f0f4ad17e8c736ac96e5ae11b4f539843f9",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id42",
+        "title": "glossario id 42",
+        "category": "glossario/glossario id 42",
+        "keywords": "glossario, locali, piemontesi",
+        "list": [],
+        "table": {
+            "Region": "Aggregato di una o più Availability Zone",
+            "Rupar": "Rupar Piemonte è la Rete Unitaria della Pubblica Amministrazione a cui possono aderire tutti gli Enti locali piemontesi"
+        },
+        "required_role": [],
+        "text": "1.18 r acronimo/termine significato region aggregato di una o più availability zone rupar rupar piemonte è la rete unitaria della pubblica amministrazione a cui possono aderire tutti gli enti locali piemontesi [s]"
+    },
+    {
+        "hash": "460da1bdb857aee8071d5164e5b228bb2353f3e400461697502bb83d42a279ae",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id43",
+        "title": "glossario id 43",
+        "category": "glossario/glossario id 43",
+        "keywords": "risorse, servizio, possibile, glossario",
+        "list": [],
+        "table": {
+            "SG Security Group": "E' il firewall della istanze di Nivola. Configurabile dall'utente per controllare il traffico in entrata e in uscita da e verso le istanze. Il SG protegge ogni singola istanza al suo interno. Per far colloquiare istanze del medesimo SG tra loro si dovrà agire sulle regole di ingresso e di uscita.",
+            "Service Portal": "È il portale di servizio a cui consumer e provider accedono per il governo dei servizi esposti da Nivola. L'interfaccia è in grado cooperare con le API di business esposte dalla CMP. Il Service Portal espone inoltre funzioni proprie come l'accesso alla documentazione, ai video tutorial, alla chat e al Servizio di assistenza tramite il Team di Supporto Nivola per supportare l'utente in caso di problemi, malfunzionamenti o semplici how-to-use.",
+            "Site": "Aggregato di uno o più POD",
+            "Storage as Service STAAS": "Il servizio prevede la fornitura di spazio disco prestazionale raggiungibile via rete con protocolli NFS e CIFS esclusivamente dalle macchine virtuali Nivola. La messa a disposizione dei servizi di storage avviene su infrastrutture ridondate e configurate in alta affidabilità.",
+            "SUBNET": "E' un range di IP utilizzabile all'interno del VpC. E' possibile usare delle risorse di Nivola all'interno di una specifica subnet. E' possibile usare una subnet per risorse che devono connettersi ad Internet ed una privata, per risorse che invece non hanno necessità di connettersi ad Internet. Per proteggere le risorse di Nivola in ciascuna sottorete, è possibile utilizzare più security groups."
+        },
+        "required_role": [],
+        "text": "1.19 s acronimo/termine significato sg security group e' il firewall della istanze di nivola. configurabile dall'utente per controllare il traffico in entrata e in uscita da e verso le istanze. il sg protegge ogni singola istanza al suo interno. per far colloquiare istanze del medesimo sg tra loro si dovrà agire sulle regole di ingresso e di uscita. service portal è il portale di servizio a cui consumer e provider accedono per il governo dei servizi esposti da nivola. l'interfaccia è in grado cooperare con le api di business esposte dalla cmp. il service portal espone inoltre funzioni proprie come l'accesso alla documentazione, ai video tutorial, alla chat e al servizio di assistenza tramite il team di supporto nivola per supportare l'utente in caso di problemi, malfunzionamenti o semplici how-to-use. site aggregato di uno o più pod storage as service staas il servizio prevede la fornitura di spazio disco prestazionale raggiungibile via rete con protocolli nfs e cifs esclusivamente dalle macchine virtuali nivola. la messa a disposizione dei servizi di storage avviene su infrastrutture ridondate e configurate in alta affidabilità. subnet e' un range di ip utilizzabile all'interno del vpc. e' possibile usare delle risorse di nivola all'interno di una specifica subnet. e' possibile usare una subnet per risorse che devono connettersi ad internet ed una privata, per risorse che invece non hanno necessità di connettersi ad internet. per proteggere le risorse di nivola in ciascuna sottorete, è possibile utilizzare più security groups. [t]"
+    },
+    {
+        "hash": "3612a9c614b5235a62713731d698fc1795aa421058f2cecdfa161aa2c90452e0",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id44",
+        "title": "glossario id 44",
+        "category": "glossario/glossario id 44",
+        "keywords": "risorse, massime, dimensioni, glossario",
+        "list": [],
+        "table": {
+            "Tagli": "Definiscono le dimensioni massime complessive delle risorse della Virtual Machine.",
+            "Tags": "Attraverso i TAGS la piattaforma mette a disposizione la possibilità di etichettare le proprie risorse in modo da facilitare di individuarle e ricercarle con chiavi personalizzabili.",
+            "Template": "Sono le tipologie e le versioni del OS utilizzati per la creazione della Virtual Machine."
+        },
+        "required_role": [],
+        "text": "1.20 t acronimo/termine significato tagli definiscono le dimensioni massime complessive delle risorse della virtual machine. tags attraverso i tags la piattaforma mette a disposizione la possibilità di etichettare le proprie risorse in modo da facilitare di individuarle e ricercarle con chiavi personalizzabili. template sono le tipologie e le versioni del os utilizzati per la creazione della virtual machine. [u]"
+    },
+    {
+        "hash": "5c86de7d3b0be423742df72983efd89541ca939449c239f29f37d7a7f42fe207",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id45",
+        "title": "glossario id 45",
+        "category": "glossario/glossario id 45",
+        "keywords": "glossario, servizi, fisica",
+        "list": [],
+        "table": {
+            "Utente/User": "Persona fisica accreditata all'accesso ai servizi Nivola"
+        },
+        "required_role": [],
+        "text": "1.21 u acronimo/termine significato utente/user persona fisica accreditata all'accesso ai servizi nivola [v]"
+    },
+    {
+        "hash": "d47d4c0bd1c1a04ca231452b2da0bd7ce7d594b882631bb15838a26c58e79796",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Glossario/Glossario.html#id46",
+        "title": "glossario id 46",
+        "category": "glossario/glossario id 46",
+        "keywords": "rete, grado, glossario, virtuale",
+        "list": [],
+        "table": {
+            "VM: Virtual Machine": "Server in grado di ospitare servizi.",
+            "VPC: Virtual Private Cloud": "E' una rete virtuale dedicata all'account Nivola, logicamente isolata dalle altre reti di Nivola. L'istanza è utilizzabie all'interno del proprio Vpc. Il Vpc è configurabile modificando il range degli indirizzi IP. Possibile creare sottoreti, indicando route tables, network gateways e security settings."
+        },
+        "required_role": [],
+        "text": "1.22 v acronimo/termine significato vm: virtual machine server in grado di ospitare servizi. vpc: virtual private cloud e' una rete virtuale dedicata all'account nivola, logicamente isolata dalle altre reti di nivola. l'istanza è utilizzabie all'interno del proprio vpc. il vpc è configurabile modificando il range degli indirizzi ip. possibile creare sottoreti, indicando route tables, network gateways e security settings. [w]"
+    },
+    {
+        "hash": "94cfce28b95cb277e2849e5806ed30afd3589b84e9e63a2a7bf4aecf047f1fec",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/8.13_Cancellare_Avvisi.html#cancellare-avvisi",
+        "title": "cancellare avvisi",
+        "category": "come fare per/cancellare avvisi",
+        "keywords": "seguenti, pagina, avvisi",
+        "list": [
+            "Accedere alla pagina Gestione avvisi del Budget",
+            "Individuare l'Avviso da cancellare, quindi cliccare sul simbolo della X rossa sulla destra all'interno della corrispondente riga",
+            "Confermare l'eliminazione dal popup, premendo sul bottone CANCELLA"
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "per cancellare un avviso procedere con le seguenti operazioni: accedere alla pagina gestione avvisi del budget individuare l'avviso da cancellare, quindi cliccare sul simbolo della x rossa sulla destra all'interno della corrispondente riga confermare l'eliminazione dal popup, premendo sul bottone cancella"
+    },
+    {
+        "hash": "5bab9d46c71ae2b50214749d86fba7a5fcac4cdcf8dedb3c0a85de3d051b79d7",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Linee_guida/9.8_utenti_privilegiati_Ruoli_e_diritti.html#utenti-ruoli-ed-account",
+        "title": "utenti ruoli ed account",
+        "category": "linee guida/utenti ruoli ed account",
+        "keywords": "utenti, master, account, ruoli",
+        "list": [
+            "Un Master di Organizzazione può accreditare o revocare utenti all'interno delle proprie divisioni o account",
+            "Un Master di Divisione può accreditare o revocare utenti all'interno dei propri account e della propria divisione.",
+            "Un Master di Account può accreditare o revocare utenti all'interno del proprio account.",
+            "L'Amministratore di Backoffice può accreditare o revocare ruoli agli utenti a qualsiasi livello della struttura gerarchica."
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "si possono distinguere più ruoli all'interno della piattaforma, che si correlano alla struttura organizzativa definita. ad ogni ruolo può corrispondere almeno un utente, e quindi almeno una persona fisica che svolge quella funzione. una persona registrata sul sistema può essere associata a più ruoli anche su strutture organizzative differenti. ad esempio un utente può avere ruoli differenti su account anche di divisioni distinte. ad oggi all'interno del sistema sono implementati i seguenti ruoli utente. master di organizzazione: questo ruolo rappresenta gli utenti che possono svolgere funzioni amministrative all'interno dell'organizzazione quali la creazione, sempre all'interno dell'organizzazione di pertinenza, delle divisioni e degli account; può inoltre profilare gli utenti per renderli operativi all'interno della propria struttura ed eventualmente registrare utenti non ancora presenti sulla piattaforma. il master di organizzazione può monitorare i costi e lo stato delle risorse a tutti i livelli della propria struttura organizzativa (divisioni e account) e visualizzarne i relativi report. non ha però accesso alle funzioni di gestione (creazione/modifica/cancellazione) delle risorse associate agli account della propria organizzazione. master di divisione: questo ruolo rappresenta gli utenti che possono svolgere funzioni amministrative all'interno della divisione quali la creazione, sempre all'interno della divisione di pertinenza, degli account; può inoltre profilare gli utenti per renderli operativi all'interno della propria struttura ed eventualmente ha la possibilità di registrare utenti non ancora presenti sulla piattaforma. il master di organizzazione può monitorare i costi e lo stato delle risorse a tutti i livelli della propria struttura organizzativa (account) e visualizzarne i relativi report. non ha però accesso alle funzioni di gestione (creazione/modifica/cancellazione) delle risorse associate agli account della propria divisione. amministratore di back office: utente che all'interno del sistema ha privilegi sulle funzioni di backoffice (registrazione nuovi utenti, accreditamento, creazione livelli organizzativi) e monitoraggio costi e stato della piattaforma. l'amministratore di backoffice può profilare utenti con ruoli a qualsiasi livello della struttura organizzativa. può inoltre accedere ai report dei costi e consumi aggregati a qualsiasi livello. il ruolo è solitamente associato a utenti dei gruppi di gestione e supporto csi piemonte. master di account: utente che all'interno dell'account può gestire tutte le risorse, sulle quali ha quindi il massimo dei privilegi. il master di account può quindi creare/cancellare/modificare le risorse, può anche gestire le risorse create da altri utenti nell'account. il master di account può visualizzare e accedere ai report dei costi e dei consumi relativamente al proprio account. il master di account può registrare nuovi utenti all'interno del proprio account e può profilare o revocare utenti già censiti ad accedervi. viewer di account: utente che all'interno dell'account può visualizzare tutte le risorse, sulle quali non ha però privilegi di modifica/cancellazione. il viewer di account può quindi visualizzare l'elenco dei servizi attivi sull'account , può visualizzarne il dettaglio, ma non ha possibilità di attivarne di nuovi e modificarne lo stato. il viewer di account può visualizzare e accedere ai report dei costi e dei consumi aggregati dell'account. il viewer di account non può registrare nuovi utenti all'interno della piattaforma e non può profilare altri utenti ad accedervi. la fase di introduzione di un nuovo utente si articola in questo modo: un master, nel limite dei privilegi del suo livello gerarchico, può accreditare un utente registrato sulla piattaforma assegnandogli un ruolo, in questo modo gli concede dei permessi per svolgere determinate funzioni che faranno ricadere il nuovo utente in un determinato gruppo. la stessa operazione può essere effettuata e delegata all'operatore di backoffice. riassumendo: un master di organizzazione può accreditare o revocare utenti all'interno delle proprie divisioni o account un master di divisione può accreditare o revocare utenti all'interno dei propri account e della propria divisione. un master di account può accreditare o revocare utenti all'interno del proprio account. l'amministratore di backoffice può accreditare o revocare ruoli agli utenti a qualsiasi livello della struttura gerarchica."
+    },
+    {
+        "hash": "81a02326f1e97b0d4d5f6f69bb3e6e5959512fa98701f680145492df53020515",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/40.1_Consultare_costi_e_consumi.html#consultare-costi-e-consumi-master-di-account-e-master-di-division",
+        "title": "consultare costi e consumi",
+        "category": "come fare per/consultare costi e consumi",
+        "keywords": "consumi, costi, label",
+        "list": [],
+        "table": {},
+        "required_role": [
+            "master di account",
+            "master di division"
+        ],
+        "text": "master di account i costi e consumi sono visibili attraverso il menu posto alla sinistra dello schermo. cliccando sulla label costi consumi sotto la label gestione account a seguito del clic su costi e consumi, il sistema presenterà nella parte destra del video i costi non rendicontati e l'andamento dei costi. il grafico e la tabella, fanno riferimento al consumo e al costo dei servizi acquistati e istanziati nell'account. e' possibile scaricare il report dei consumi mensili nel formato pdf e csv, cliccando l'icona relativa. il pdf sintesi e il file csv sintesi riportano mensilmente i costi di ciascun servizio istanziato, riferito alla singola componente. nei file pdf dettaglio e file csv dettaglio invece, è indicato giornalmente, il consumo dei servizi, per ogni suo elemento. il listino è visibile attraverso il menu posto alla sinistra dello schermo. cliccando sulla label listino sotto la label gestione account il sistema presenterà nella parte destra del video il listino applicato all'account: master di division i costi e consumi sono visibili attraverso il menu posto alla sinistra dello schermo. cliccando sulla label costi consumi sotto la label gestione divisione a seguito del clic su costi e consumi, il sistema presenterà nella parte destra del video i costi non rendicontati, l'andamento dei costi e i costi suddivisi per account. il grafico e la tabella, fanno riferimento al consumo e al costo dei servizi acquistati e istanziati nella division. e' possibile scaricare il report dei consumi mensili nel formato pdf cliccando l'icona relativa. il pdf sintesi riporta mensilmente i costi di ciascun servizio istanziato, riferito alla singola componente."
+    },
+    {
+        "hash": "54f977724f9a50e4ada0874aad667fea03b77b2aa861eccda98ee2b6875f5870",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_muovere_primi_passi/10_Passaggi_necessari.html#processo-di-accredito",
+        "title": "processo di accredito",
+        "category": "come muovere primi passi/processo di accredito",
+        "keywords": "servizi, servizio, accredito, caso, processo",
+        "list": [
+            "Contattare il proprio account di riferimento o andare alla sezione Contattiraggiungibile dal sito www.nivolapiemonte.it. Una volta attivato il contratto o l'utilizzo del servizio in modalità , il Team di Supporto Nivola provvederà a contattare il referente del Cliente per procedere con la creazione delle prime credenziali di accesso.",
+            "Dopo avere ricevuto l'offerta ufficiale protocollata, procederecon l'emissione di un ordine al CSI-Piemonte.",
+            "Approvare e impegnare con una determina l'importo presente nell'offerta.",
+            "Inviare la documentazione tramite PEC all'indirizzo protocollo@cert.csi.itindicando nell'oggetto dell'email:",
+            "Attivazione Servizi Nivola.",
+            "Numero di protocollo presente sull'offerta.",
+            "Nome dell'Ente.",
+            "Indicare un referente che sarà contattato dal nostro servizio di assistenza per i dettagli tecnici. Nel caso in cui la persona cui rivolgersi, in caso di incident di sicurezza, sia diversa da quella indicata in precedenza, serve individuare un nominativo diverso, in ottemperanza alle norme di ultima introduzione in ambito di Data Breach."
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "per poter utilizzare i servizi esposti dalla piattaforma nivola è necessario accreditarsi secondo il seguente processo: contattare il proprio account di riferimento o andare alla sezione contattiraggiungibile dal sito www.nivolapiemonte.it. una volta attivato il contratto o l'utilizzo del servizio in modalità , il team di supporto nivola provvederà a contattare il referente del cliente per procedere con la creazione delle prime credenziali di accesso. dopo avere ricevuto l'offerta ufficiale protocollata, procederecon l'emissione di un ordine al csi-piemonte. approvare e impegnare con una determina l'importo presente nell'offerta. inviare la documentazione tramite pec all'indirizzo protocollo@cert.csi.itindicando nell'oggetto dell'email: attivazione servizi nivola. numero di protocollo presente sull'offerta. nome dell'ente. indicare un referente che sarà contattato dal nostro servizio di assistenza per i dettagli tecnici. nel caso in cui la persona cui rivolgersi, in caso di incident di sicurezza, sia diversa da quella indicata in precedenza, serve individuare un nominativo diverso, in ottemperanza alle norme di ultima introduzione in ambito di data breach. questi aspetti sono riportati nel manuale utente del servizio e nelle condizioni generali in cui è possibile trovare maggiori dettagli e informazioni anche inerenti la cessazione del servizio. nel caso si presentasse questa evenienza il csi si impegna a mettere a disposizione del cliente i propri dati e successivamente di cancellarli. terminata la fase di richiesta si riceverà dal team di supporto la comunicazione via e-mail del primo accredito. in questo modo l'utente, sarà in grado di controllare la struttura organizzativa modellata dal supporto e conferire ulteriori abilitazioni."
+    },
+    {
+        "hash": "a43f6065afda48fe6b1348255fbfcb0503a5a2285e53e4aaac28312811b7a76d",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_muovere_primi_passi/10_Passaggi_necessari.html#completare-i-livelli-organizzativi",
+        "title": "completare i livelli organizzativi",
+        "category": "come muovere primi passi/completare i livelli organizzativi",
+        "keywords": "piattaforma, organizzativi, livelli",
+        "list": [],
+        "table": {},
+        "required_role": [],
+        "text": "la piattaforma si compone di 3 livelli organizzativi quello deputato ad ospitare i servizi è l'account. nel caso, l'account non fosse stato definito dal supporto, prima di crearlo sarà indispensabile individuare o creare una divisione da cui farlo dipendere. la presenza dell'organizzazione e della divisione sono la condizione necessaria alla generazione dell'account."
+    },
+    {
+        "hash": "4899df11c6add10da88e5a103cc18db04e87df4c2c1bb18c80aacbe583282523",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_muovere_primi_passi/10_Passaggi_necessari.html#attivare-utenti",
+        "title": "attivare utenti",
+        "category": "come muovere primi passi/attivare utenti",
+        "keywords": "struttura, possibile, utenti",
+        "list": [],
+        "table": {},
+        "required_role": [],
+        "text": "successivamente ad aver costituito la struttura organizzativa, sarà possibile indicare a nivola gli utenti associati a ruoli che ad ogni livello, potranno agire sugli oggetti con compiti specifici."
+    },
+    {
+        "hash": "1ce138ca820ddc3cdb94c265f3aea25e5bfe7e88e547cb3e4ca9ce47cd116add",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_muovere_primi_passi/10_Passaggi_necessari.html#verificare-i-vpc",
+        "title": "verificare i vpc",
+        "category": "come muovere primi passi/verificare i vpc",
+        "keywords": "creazione, vpc, profilo, utenze",
+        "list": [],
+        "table": {},
+        "required_role": [],
+        "text": "dopo la creazione dell'account e l'associazione delle utenze al profilo organizzativo corretto è da verificare la corretta configurazione dei propri vpc (virtual private clud). all'interno dei propri vpc l'utente potrà gestire e configurare le proprie risorse. il vpc garantisce il necessario isolamento tra le varie organizzazioni."
+    },
+    {
+        "hash": "bfa8789eea449594e28968acbc9c6259a33d6c337afb72d298879766fe805dd5",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_muovere_primi_passi/10_Passaggi_necessari.html#verificare-security-group",
+        "title": "verificare security group",
+        "category": "come muovere primi passi/verificare security group",
+        "keywords": "group, possibile, regole, caso",
+        "list": [],
+        "table": {},
+        "required_role": [],
+        "text": "nivola mette a disposizione alcuni sg pre-configurati ma è possibile modificarne le regole o creare nuovi sg in funzione delle specifiche esigenze. e' importante quindi verificarli ed eventualmente modificarli o integrarli prima di iniziare a creare i servizi. sarà in ogni caso sempre possibile modificare le regole di sicurezza anche successivamente alla creazione dei servizi ma non è possibile spostare un servizio da un sg ad un altro dopo la creazione. in questo caso sarà necessario distruggere il servizio e ricrearlo nel sg corretto."
+    },
+    {
+        "hash": "1cf9c958b65f77f59f49e87762666ef10598471a514baf3876085bcba604e2ad",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_muovere_primi_passi/10_Passaggi_necessari.html#creare-i-servizi",
+        "title": "creare i servizi",
+        "category": "come muovere primi passi/creare i servizi",
+        "keywords": "creazione, servizi, possibile, processo",
+        "list": [],
+        "table": {},
+        "required_role": [],
+        "text": "dopo aver concluso i passaggi precedenti sarà possibile iniziare la creazione dei servizi tramite l'apposito menù del service portal. il processo di creazione è sempre guidato attraverso un apposito wizard di creazione. il processo può sempre essere interrotto prima della conferma finale ed è possibile accedere direttamente alla presente guida per maggiori informazioni."
+    },
+    {
+        "hash": "1ff95271e53780fe69442bafbf45c45941d7645a5478bf2380e8eac5b0fc3826",
+        "link": "https://nivola-userguide.readthedocs.io/it/latest/Come_fare_per/03_Master_di_Organizzazione.html#master-di-organizzazione",
+        "title": "master di organizzazione",
+        "category": "come fare per/master di organizzazione",
+        "keywords": "master, organizzazione, divisione, dettaglio, divisioni",
+        "list": [
+            "Accedere al Service Portal come Master di Organizzazione",
+            "Premere sulla scheda Gestione Organizzazione → Struttura Organizzativa → Divisioni",
+            "Cliccando su Divisioni, il portale restituisce un elenco delle divisioni appartenenti all'organizzazione gestita dall'utente",
+            "Nome dell'organizzazione di origine",
+            "Nome delle divisioni appartenenti all'organizzazione",
+            "Descrizione della divisione",
+            "Stato della divisione",
+            "Creazione di una nuova Divisione",
+            "Refresh dell'elenco Divisioni",
+            "Reindirizzamento agli account legati alla divisione",
+            "Dettaglio della divisione",
+            "Modifica della divisione",
+            "Eliminazione della divisione",
+            "Stato",
+            "Denominazione",
+            "Descrizione",
+            "Indirizzo geografico",
+            "Indirizzo Email",
+            "Referente",
+            "Data Creazione"
+        ],
+        "table": {},
+        "required_role": [],
+        "text": "per visualizzare i dettagli delle divisioni sotto un' organizzazione procedere nel seguente modo: ● accedere al service portal come master di organizzazione ● premere sulla scheda gestione organizzazione → struttura organizzativa → divisioni ● cliccando su divisioni, il portale restituisce un elenco delle divisioni appartenenti all'organizzazione gestita dall'utente in questa pagina si possono vedere le specifiche generali delle divisioni: ● nome dell'organizzazione di origine ● nome delle divisioni appartenenti all'organizzazione ● descrizione della divisione ● stato della divisione le funzionalità disponibili in questa pagina sono: ● creazione di una nuova divisione ● refresh dell'elenco divisioni selezionando una divisione e selezionando il checkbox alla sua sinistra si abilitano le seguenti funzioni: ● reindirizzamento agli account legati alla divisione ● dettaglio della divisione ● modifica della divisione ● eliminazione della divisione dettaglio divisione: l'utente visualizza la pagina di dettaglio della divisione scelta: il tab dettaglio fornisce all'utente informazioni dettagliate sulla divisione, quali: ● stato ● denominazione ● descrizione ● indirizzo geografico ● indirizzo email ● referente ● data creazione account collegati: il bottone reindirizza l'utente all'elenco account collegati alla divisione scelta sotto la prima parte di dettaglio si trovano i servizi di compute, database e storage della divisione scelta nella scheda utenti si ritrova un elenco degli utenti abbinati alla divisione selezionata, con la possibilità di registrarne uno nuovo: nell'ultimo tab consumi si ritrova un elenco dei costi e consumi specifici per la divisione scelta: il bottone arancione serve a refreshare il grafico dell'andamento dei costi:"
+    }
+]
