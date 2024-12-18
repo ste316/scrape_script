@@ -1,3 +1,4 @@
-discord_webhook
 requests
-bs4
+beautifulsoup4
+discord-webhook
+lxml

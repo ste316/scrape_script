@@ -11,17 +11,19 @@ from warnings import filterwarnings
 filterwarnings('ignore', category=XMLParsedAsHTMLWarning)
 
 class WSLscraper():
-    def __init__(self, timeout, loadCachedLink: bool) -> None:
+    def __init__(self, timeout, loadCachedLink: bool, use_webhook: bool = True) -> None:
         self.settings = util.loadSettings()
         self.url_sitemap = 'https://www.withoutstupidlabel.it/store-products-sitemap.xml'
         self.urls = set()
         self.sess = Session()
         self.sess.proxies = util.loadProxy()
         self.sess.headers['User-Agent'] = util.get_random_agent()
-        self.webhook = util.setupWebhook(self.settings['discord_webhook'])
+        self.use_webhook = use_webhook
+        self.webhook = util.setupWebhook(self.settings['discord_webhook']) if use_webhook else None
         self.errCount = 0
         self.param = self.genParams()
         self.timeout = timeout
+        self.product_states = {}
         if loadCachedLink: self.urls.update(util.loadCachedLink())
 
     def getProductInfo(self, link: str):
@@ -62,7 +64,10 @@ class WSLscraper():
             })
         return param
 
-    def printWebhook(self, linksInfo: list, reqError: bool): # https://discordpy.readthedocs.io/en/latest/api.html
+    def printWebhook(self, linksInfo: list, reqError: bool):
+        if not self.use_webhook:
+            return
+            
         if len(linksInfo) == 0 and reqError:
             embed = DiscordEmbed(title='Unable to scrape, check console', color = 0XFF0000)
             self.webhook.add_embed(embed)
@@ -102,6 +107,7 @@ class WSLscraper():
 
     def run(self, dumpNewLink: bool):
         try:
+            first_run = True
             while True:
                 newLink = []
                 print(f"[{datetime.now().strftime('%H:%M:%S')}] Getting main page...")
@@ -119,14 +125,33 @@ class WSLscraper():
 
                 print(f"[{datetime.now().strftime('%H:%M:%S')}] Scraping product pages found...")
                 for product in products:
-                    if product['link'] not in self.urls:
-                        for _ in range(3): # try maximum 3 times
-                            info = self.getProductInfo(product['link'])
-                            if not info[0] and not info[1] and not info[2]:
-                                continue
-                            break
-                        title, price, isCartable = info
+                    for _ in range(3):
+                        info = self.getProductInfo(product['link'])
+                        if not info[0] and not info[1] and not info[2]:
+                            continue
+                        break
+                    title, price, isCartable = info
 
+                    # Check if product state has changed
+                    current_state = {
+                        'title': title,
+                        'price': price,
+                        'isCartable': isCartable
+                    }
+                    
+                    previous_state = self.product_states.get(product['link'])
+                    state_changed = (
+                        first_run or 
+                        not previous_state or
+                        previous_state['price'] != price or
+                        previous_state['isCartable'] != isCartable
+                    )
+
+                    # Update product state
+                    self.product_states[product['link']] = current_state
+
+                    if state_changed:
+                        is_new = product['link'] not in self.urls
                         self.urls.add(product['link'])
                         newLink.append({
                             'link': product['link'],
@@ -135,18 +160,24 @@ class WSLscraper():
                             'isCartable': isCartable,
                             'date': product['date']
                         })
-                        print(f'[{datetime.now().strftime("%H:%M:%S")}] New Product Found! {product["link"]}, Date: {product["date"]}, IsCartable: {isCartable}, title: {title}, price: {price}')
+                        status = "🟢 Cart now" if isCartable else "🟡 Loaded"
+                        new_tag = "[NEW] " if is_new else "[UPDATED] "
+                        print(f'[{datetime.now().strftime("%H:%M:%S")}] {new_tag}{title} - {status} - {price} - {product["link"]}')
 
                 if len(newLink) > 0:
-                    print(f"[{datetime.now().strftime('%H:%M:%S')}] New product found: {len(newLink)}")
+                    print(f"[{datetime.now().strftime('%H:%M:%S')}] Total product found: {len(newLink)}")
                     self.printWebhook(newLink, False)
                     if dumpNewLink:
                         util.dumpCachedLink(self.urls)
+                
+                first_run = False
                 time.sleep(self.timeout)
+
         except KeyboardInterrupt:
             print('CTRL C detected, exiting')
 
 if __name__ == '__main__':
     use_cached_link = True
-    main = WSLscraper(1, use_cached_link)
+    use_webhook = False
+    main = WSLscraper(1, use_cached_link, use_webhook)
     main.run(use_cached_link)
